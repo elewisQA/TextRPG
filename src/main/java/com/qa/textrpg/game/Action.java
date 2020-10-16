@@ -7,26 +7,28 @@ public enum Action {
 	LOCK,
 	OPEN,
 	JUMP,
+	MAP,
 	QUIT
 	;
 	
-	static Action match(String action) {
-		switch(action) {
-		case "WALK": 
+	static Action match(String action) {	
+		if (action.equals("WALK")) {
 			return Action.WALK;
-		case "DESCRIBE":
+		} else if (action.equals("DESCRIBE")) {
 			return Action.DESCRIBE;
-		case "UNLOCK":
+		} else if (action.equals("UNLOCK")) {
 			return Action.UNLOCK;
-		case "LOCK":
+		} else if (action.equals("LOCK")) {
 			return Action.LOCK;
-		case "OPEN":
+		} else if (action.equals("OPEN")) {
 			return Action.OPEN;
-		case "JUMP":
+		} else if (action.equals("JUMP")) {
 			return Action.JUMP;
-		case "QUIT":
+		} else if (action.equals("MAP")) {
+			return Action.MAP;
+		} else if (action.equals("QUIT")) {
 			return Action.QUIT;
-		default:
+		} else {
 			return null;
 		}
 	}

@@ -8,16 +8,15 @@ public enum Direction {
 	;
 	
 	public static Direction match(String direction) {
-		switch (direction) {
-		case "FORWARD": 
+		if (direction.equals("FORWARD")) {
 			return Direction.FORWARD;
-		case "BACKWARD":
+		} else if(direction.equals("BACKWARD")) {
 			return Direction.BACKWARD;
-		case "LEFT":
+		} else if(direction.equals("LEFT")) {
 			return Direction.LEFT;
-		case "RIGHT": 
+		} else if(direction.equals("RIGHT")) {
 			return Direction.RIGHT;
-		default:
+		} else {
 			return null;
 		}
 	}

@@ -18,4 +18,11 @@ public class Hedge extends MapObject {
 		this.uid = uid;
 		this.name = "Hedge";
 	}
+	
+	
+	//-[ Override ]-
+	@Override
+	public String printIcon() {
+		return "H";
+	}
 }

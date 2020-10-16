@@ -13,12 +13,13 @@ import com.qa.textrpg.world.entities.*;
 
 //===[ Generator Method ]===
 public class MapGenerator {
-	static void generate() throws IOException {
+	static List<List<List<MapObject>>> generate() throws IOException {
 		int uid = 0;
 		
+		System.out.println("1");
 		// Load an Image from files
 		BufferedImage mapImage = null;
-		mapImage = ImageIO.read(new File("resources/map.png"));
+		mapImage = ImageIO.read(new File("src/main/resources/map.png"));
 		
 		// Read-Pixels from Image - RGB Values all merged into one
         int[][] pixelArray = new int[mapImage.getWidth()][mapImage.getHeight()];
@@ -53,5 +54,6 @@ public class MapGenerator {
         	}
         	mapGrid.add(column);
         }
+        return mapGrid;
 	}
 }

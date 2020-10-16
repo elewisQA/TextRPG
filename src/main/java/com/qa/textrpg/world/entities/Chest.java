@@ -4,7 +4,6 @@ package com.qa.textrpg.world.entities;
 import java.util.ArrayList;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Chest extends MapObject implements Lockable {
 	//-[ Class Variables ]-
 	boolean locked;
@@ -29,7 +27,6 @@ public class Chest extends MapObject implements Lockable {
 	}
 	
 	//-[ Chest Methods ]-
-	@Override
 	public String open() {
 		switch(this.state) {
 		case LOCKED:
@@ -42,7 +39,6 @@ public class Chest extends MapObject implements Lockable {
 		}
 	}
 	
-	@Override
 	public String unlock() {
 		switch(this.state) {
 		case LOCKED:
@@ -55,7 +51,6 @@ public class Chest extends MapObject implements Lockable {
 		}
 	}
 	
-	@Override
 	public String lock() {
 		switch(this.state) {
 		case LOCKED:
@@ -81,8 +76,14 @@ public class Chest extends MapObject implements Lockable {
 		// TODO implement this method
 	}
 
-	@Override
 	public Lock getLockState() {
 		return state;
+	}
+	
+	
+	//-[ Override ]-
+	@Override
+	public String printIcon() {
+		return "C";
 	}
 }
