@@ -15,12 +15,16 @@ public class ActionListener {
 		// Temp Vars
 		Action nextAction = null;
 		Direction direction = null;
+		String input = "";
 		
 		// Propmpt User and await Input
-		System.out.print(">");
-		String input = in.nextLine().toUpperCase(); // Get input & cast to upper-case
-		String[] commands = input.split("\s| ");
+		while (input.length() <= 0) { 
+			System.out.print(">");
+			input = in.nextLine()
+					.toUpperCase(); // Get input & cast to upper-case
+		}
 		
+		String[] commands = input.split("\s| ");
 		nextAction = Action.match(commands[0]);
 		if (commands.length > 1) {
 			direction = Direction.match(commands[1]);
@@ -28,19 +32,27 @@ public class ActionListener {
 		
 		switch(nextAction) {
 		case WALK: 
-			game.walk(direction);
+			if (direction != null) {
+				game.walk(direction);
+			}
 			break;
 		case DESCRIBE:
 			game.describe();
 			break;
 		case UNLOCK:
-			game.unlock(direction);
+			if (direction != null) {
+				game.unlock(direction);
+			}
 			break;
 		case LOCK:
-			game.lock(direction);
+			if (direction != null) {
+				game.lock(direction);
+			}
 			break;
 		case OPEN:
-			game.open(direction);
+			if (direction != null) {
+				game.open(direction);
+			}
 			break;
 		case JUMP:
 			game.jump();

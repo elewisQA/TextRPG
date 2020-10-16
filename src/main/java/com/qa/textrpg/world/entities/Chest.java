@@ -13,20 +13,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class Chest extends MapObject{
-	//-[ Chest State ]-
-	enum State {
-		LOCKED,
-		UNLOCKED,
-		OPEN
-	
-	}
+public class Chest extends MapObject implements Lockable {
 	//-[ Class Variables ]-
 	boolean locked;
-	ArrayList<Object> contents; // TODO replace with game-items
-	State state;
-	
-	
+	ArrayList<Object> contents; // TODO replace with game-items	
+	Lock state;
 	
 	//-[ UID Constructor ]-
 	public Chest(int uid) {
@@ -34,42 +25,64 @@ public class Chest extends MapObject{
 		this.uid = uid;
 		this.collideable = true;
 		this.name = "Chest";
-		this.state = State.LOCKED;
+		this.state = Lock.LOCKED;
 	}
 	
 	//-[ Chest Methods ]-
+	@Override
 	public String open() {
 		switch(this.state) {
 		case LOCKED:
 			return "The chest is locked. You need a key to open it.";
 		case UNLOCKED:
 			return "The chest creaks as you open it.";
-		case OPEN:
-			return "The chest is already open.";
+			// TODO loop through, describe items
 		default:
 			return "The chest is locked. You need a key to open it.";
 		}
 	}
 	
+	@Override
 	public String unlock() {
 		switch(this.state) {
 		case LOCKED:
-			this.state = State.UNLOCKED;
+			this.state = Lock.UNLOCKED;
 			return "You hear a click as you turn the key. The chest is unlocked.";
 		case UNLOCKED:
 			return "The chest is already unlocked.";
-		case OPEN:
-			return "The chest is already open.";
 		default:
 			return "You hear a click as you turn the key. The chest is unlocked.";
 		}
 	}
 	
-	public void take() {
+	@Override
+	public String lock() {
+		switch(this.state) {
+		case LOCKED:
+			return "The chest is already locked.";
+		case UNLOCKED:
+			this.state = Lock.LOCKED;
+			return "You hear a click as you turn the key. The chest is unlocked.";
+		default:
+			this.state = Lock.LOCKED;
+			return "You hear a click as you turn the key. The chest is unlocked.";
+		}
+	}
+	
+	public void take(int index) {
+		// TODO implement this method
+	}
+	
+	public void take(String itemName) {
 		// TODO implement this method
 	}
 	
 	public void takeAll() {
 		// TODO implement this method
+	}
+
+	@Override
+	public Lock getLockState() {
+		return state;
 	}
 }

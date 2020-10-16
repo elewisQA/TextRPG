@@ -19,13 +19,16 @@ public class Map {
 		worldGrid = new ArrayList<List<List<MapObject>>>();
 		
 		// Make a 10x10 Map
-		for (int x = 0; x <= 10; x++) {
+		for (int x = 0; x < 10; x++) {
 			ArrayList<List<MapObject>> column = new ArrayList<List<MapObject>>();
-			for (int y = 0; y <= 10; y++) {
-				column.add(new ArrayList<MapObject>());
+			for (int y = 0; y < 10; y++) {
+				List<MapObject> itemStack = new ArrayList<MapObject>();
+				itemStack.add(null);
+				column.add(itemStack);
 			}
 			this.worldGrid.add(column);
 		}	
+		
 		
 		this.width = 10;
 		this.height = 10;
