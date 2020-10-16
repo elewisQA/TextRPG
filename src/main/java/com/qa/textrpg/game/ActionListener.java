@@ -30,6 +30,11 @@ public class ActionListener {
 			direction = Direction.match(commands[1]);
 		}
 		
+		if (nextAction == null) {
+			System.out.println("Not a valid command!");
+			return;
+		}
+		
 		switch(nextAction) {
 		case WALK: 
 			if (direction != null) {
@@ -65,6 +70,11 @@ public class ActionListener {
 			break;
 		case JUMP:
 			game.jump();
+			break;
+		case MAP:
+			game.getGameMap().printMap(
+					game.getX(),
+					game.getY());
 			break;
 		case QUIT:
 			game.setLoop(false);

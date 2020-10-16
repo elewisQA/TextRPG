@@ -69,4 +69,20 @@ public class Map {
 		}
 		return true;
 	}
+	
+	public void printMap(int px, int py) {
+		for (int x = 0; x < worldGrid.size(); x++) {
+			for (int y = 0; y < worldGrid.get(x).size(); y++) {
+				MapObject mo = worldGrid.get(x).get(y).get(0);
+				if (x == px && y == py) {
+					System.out.print("P");
+				} else if (mo == null) {
+					System.out.print(".");
+				} else {
+					System.out.print(mo.printIcon());
+				}
+			}
+			System.out.println("|");
+		}
+	}
 }

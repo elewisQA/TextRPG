@@ -5,6 +5,9 @@ import com.qa.textrpg.world.Map;
 import com.qa.textrpg.world.entities.Chest;
 import com.qa.textrpg.world.entities.MapObject;
 
+import lombok.Getter;
+
+@Getter
 public class Game {
 	//-[ Game Variables ]-
 	private int x, y; // PLAYER COORDINATES
@@ -15,12 +18,18 @@ public class Game {
 
 	//-[ Constructor ]-
 	public Game() {
-		this.gameMap = new Map();
-		ActionListener.initialize();
-		loop = true;
-		this.x = 0;
-		this.y = 0;
-		start();
+		try {
+			this.gameMap = new Map(
+					MapGenerator.generate());
+			ActionListener.initialize();
+			loop = true;
+		} catch (Exception e) {
+			loop = false;
+			System.out.println("A fatal error occured");
+		}	
+			this.x = 0;
+			this.y = 0;
+			start();
 	}
 	
 	//-[ Game Loop ]-
@@ -121,25 +130,29 @@ public class Game {
 		case FORWARD:
 			if (this.gameMap.validCoord(x, y + 1)) {
 				toUnlock = this.gameMap.getAt(x, y + 1, 0);
+				break;
 			}
 		case BACKWARD:
 			if (this.gameMap.validCoord(x, y - 1)) {
 				toUnlock = this.gameMap.getAt(x, y - 1, 0);
+				break;
 			}
 		case LEFT:
 			if (this.gameMap.validCoord(x - 1, y)) {
 				toUnlock = this.gameMap.getAt(x - 1, y, 0);
+				break;
 			}
 		case RIGHT:
 			if (this.gameMap.validCoord(x + 1, y)) {
 				toUnlock = this.gameMap.getAt(x + 1, y, 0);
+				break;
 			}
 		default:
 			toUnlock = null;
 		}
 		
 		if (toUnlock instanceof Chest) {
-			((Chest) toUnlock).unlock();
+			System.out.println(((Chest) toUnlock).unlock());
 		} else if(toUnlock == null) {
 			System.out.println("Nothing there to unlock!");
 		} else {
@@ -153,25 +166,29 @@ public class Game {
 		case FORWARD:
 			if (this.gameMap.validCoord(x, y + 1)) {
 				toLock = this.gameMap.getAt(x, y + 1, 0);
+				break;
 			}
 		case BACKWARD:
 			if (this.gameMap.validCoord(x, y - 1)) {
 				toLock = this.gameMap.getAt(x, y - 1, 0);
+				break;
 			}
 		case LEFT:
 			if (this.gameMap.validCoord(x - 1, y)) {
 				toLock = this.gameMap.getAt(x - 1, y, 0);
+				break;
 			}
 		case RIGHT:
 			if (this.gameMap.validCoord(x + 1, y)) {
 				toLock = this.gameMap.getAt(x + 1, y, 0);
+				break;
 			}
 		default:
 			toLock = null;
 		}
 		
 		if (toLock instanceof Chest) {
-			((Chest) toLock).lock();
+			System.out.println(((Chest) toLock).lock());
 		} else if(toLock == null) {
 			System.out.println("Nothing there to lock!");
 		} else {
@@ -185,25 +202,29 @@ public class Game {
 		case FORWARD:
 			if (this.gameMap.validCoord(x, y + 1)) {
 				toOpen = this.gameMap.getAt(x, y + 1, 0);
+				break;
 			}
 		case BACKWARD:
 			if (this.gameMap.validCoord(x, y - 1)) {
 				toOpen = this.gameMap.getAt(x, y - 1, 0);
+				break;
 			}
 		case LEFT:
 			if (this.gameMap.validCoord(x - 1, y)) {
 				toOpen = this.gameMap.getAt(x - 1, y, 0);
+				break;
 			}
 		case RIGHT:
 			if (this.gameMap.validCoord(x + 1, y)) {
 				toOpen = this.gameMap.getAt(x + 1, y, 0);
+				break;
 			}
 		default:
 			toOpen = null;
 		}
 		
 		if (toOpen instanceof Chest) {
-			((Chest) toOpen).open();
+			System.out.println(((Chest) toOpen).open());
 		} else if(toOpen == null) {
 			System.out.println("Nothing there to open!");
 		} else {

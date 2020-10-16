@@ -18,4 +18,10 @@ public class Tree extends MapObject {
 		this.uid = uid;
 		this.name = "Tree";
 	}
+	
+	//-[ Override ]-
+	@Override
+	public String printIcon() {
+		return "T";
+	}
 }
