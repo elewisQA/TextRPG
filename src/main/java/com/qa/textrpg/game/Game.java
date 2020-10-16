@@ -140,6 +140,8 @@ public class Game {
 		
 		if (toUnlock instanceof Chest) {
 			((Chest) toUnlock).unlock();
+		} else if(toUnlock == null) {
+			System.out.println("Nothing there to unlock!");
 		} else {
 			System.out.println("Can't do that! Not lockable entity!");
 		}
@@ -170,6 +172,8 @@ public class Game {
 		
 		if (toLock instanceof Chest) {
 			((Chest) toLock).lock();
+		} else if(toLock == null) {
+			System.out.println("Nothing there to lock!");
 		} else {
 			System.out.println("Can't do that! Not lockable entity!");
 		}
@@ -200,6 +204,8 @@ public class Game {
 		
 		if (toOpen instanceof Chest) {
 			((Chest) toOpen).open();
+		} else if(toOpen == null) {
+			System.out.println("Nothing there to open!");
 		} else {
 			System.out.println("Can't do that! Not lockable entity!");
 		}

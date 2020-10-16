@@ -34,7 +34,9 @@ public class ActionListener {
 		case WALK: 
 			if (direction != null) {
 				game.walk(direction);
-			}
+			} else {
+				System.out.println("Please enter a direction to walk in.");
+			}		
 			break;
 		case DESCRIBE:
 			game.describe();
@@ -42,17 +44,24 @@ public class ActionListener {
 		case UNLOCK:
 			if (direction != null) {
 				game.unlock(direction);
+			} else {
+				System.out.println("Please specify where to unlock. i.e: 'unlock left'");
 			}
 			break;
 		case LOCK:
 			if (direction != null) {
 				game.lock(direction);
+			} else {
+				System.out.println("Please specify where to lock. i.e: 'lock left'");
 			}
 			break;
 		case OPEN:
 			if (direction != null) {
 				game.open(direction);
 			}
+			 else {
+					System.out.println("Please specify where to open. i.e: 'open left'");
+				}
 			break;
 		case JUMP:
 			game.jump();
