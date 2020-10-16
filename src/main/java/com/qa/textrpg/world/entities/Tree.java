@@ -9,7 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 @EqualsAndHashCode
-public class Tree extends Object {
+public class Tree extends MapObject {
 	
 	//-[ UID Constructor ]-
 	public Tree(int uid) {

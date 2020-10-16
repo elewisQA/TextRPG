@@ -6,6 +6,6 @@ import com.qa.textrpg.world.entities.*;
 
 //===[ Map Definition ]===
 public class Map {
-	private ArrayList<ArrayList<Object>> worldGrid;
+	private ArrayList<ArrayList<MapObject>> worldGrid;
 	
 }

@@ -9,7 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 @EqualsAndHashCode
-public class Hedge extends Object {
+public class Hedge extends MapObject {
 
 	//-[ UID Constructor ]-
 	public Hedge(int uid) {
