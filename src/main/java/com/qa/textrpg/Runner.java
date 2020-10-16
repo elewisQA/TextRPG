@@ -1,5 +1,11 @@
 package com.qa.textrpg;
 
-public class Runner {
+import com.qa.textrpg.game.Game;
 
+public class Runner {
+	static Game game;
+	
+	public static void main(String[] args) {
+		game = new Game();
+	}
 }

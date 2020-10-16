@@ -1,18 +1,72 @@
 package com.qa.textrpg.game;
 
+import com.qa.textrpg.world.Direction;
 import com.qa.textrpg.world.Map;
 
 public class Game {
 	//-[ Game Variables ]-
+	private int x, y; // PLAYER COORDINATES
 	private Map gameMap;
-	private ActionListener listener;
-	private int x, y; // Player
+	private boolean loop;
+	Action nextAction;
+	Direction nextDirection;
 
 	//-[ Constructor ]-
 	public Game() {
-		gameMap = new Map();
+		this.gameMap = new Map();
+		ActionListener.initialize();
+		// TODO set player-coords
+		start();
 	}
 	
-	//-[ Game Methods ]-
+	//-[ Game Loop ]-
+	private void start() {
+		String[] commands;
+		while(loop) {
+			// Get Next Action from user-input
+			ActionListener.nextAction(this);
+		}
+		ActionListener.quit();
+		System.out.println("Loop terminated..");
+	}
 	
+	public void setLoop(boolean loop) {
+		this.loop = loop;
+	}
+	
+	// Game Commands
+	public void walk(Direction dir) {
+		switch(dir) {
+		case FORWARD:
+			// TODO check object in-front
+		case BACKWARD:
+			// TODO check object behind
+		case LEFT:
+			// TODO check object to the left
+		case RIGHT:
+			// TODO check object to the right
+		default:
+			System.out.println("Can't do that!");
+		}
+	}
+	
+	public void describe() {
+		
+	}
+	
+	public void unlock(Direction dir) {
+		
+	}
+	
+	public void lock(Direction dir) {
+		
+	}
+	
+	public void open(Direction dir) {
+		
+	}
+	
+	public void jump() {
+		System.out.println("You jump. It does nothing.");
+	}
 }
