@@ -5,10 +5,14 @@ import java.util.List;
 
 import com.qa.textrpg.world.entities.MapObject;
 
+import lombok.Getter;
+
 //===[ Map Definition ]===
+@Getter
 public class Map {
 	//-[ Map Variables ]-
 	private List<List<List<MapObject>>> worldGrid; // X and Y coordinates, with list of objects that may be stacked atop-each-other
+	private int width, height;
 	
 	//-[ Map Constructor ]-
 	public Map() {
@@ -20,13 +24,17 @@ public class Map {
 			for (int y = 0; y <= 10; y++) {
 				column.add(new ArrayList<MapObject>());
 			}
-			worldGrid.add(column);
-		}
+			this.worldGrid.add(column);
+		}	
 		
+		this.width = 10;
+		this.height = 10;
 	}
 	
 	public Map(List<List<List<MapObject>>> worldGrid) {
 		this.worldGrid = worldGrid;
+		this.width = this.worldGrid.size();
+		this.height = this.worldGrid.get(0).size();
 	}
 	
 	//-[ Map Methods ]-
@@ -47,5 +55,15 @@ public class Map {
 		List<MapObject> newObject = new ArrayList<MapObject>();
 		newObject.add(object);
 		worldGrid.get(x).set(y, newObject);
+	}
+	
+	public boolean validCoord(int x, int y) {
+		if (x < 0 || x > this.width) {
+			return false;
+		}
+		if (y < 0 || y > this.height) {
+			return false;
+		}
+		return true;
 	}
 }

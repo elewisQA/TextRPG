@@ -38,13 +38,41 @@ public class Game {
 	public void walk(Direction dir) {
 		switch(dir) {
 		case FORWARD:
-			// TODO check object in-front
+			if (this.gameMap.validCoord(x, y + 1)) {
+				if (!this.gameMap.getAt(x, y + 1, 0)
+						.isCollideable()) {
+					y++;
+					return;
+				}
+			}
+			System.out.println("Can't go that way!");
 		case BACKWARD:
-			// TODO check object behind
+			if (this.gameMap.validCoord(x, y - 1)) {
+				if (!this.gameMap.getAt(x, y - 1, 0)
+						.isCollideable()) {
+					y++;
+					return;
+				}
+			}
+			System.out.println("Can't go that way!");
 		case LEFT:
-			// TODO check object to the left
+			if (this.gameMap.validCoord(x - 1, y)) {
+				if (!this.gameMap.getAt(x - 1, y, 0)
+						.isCollideable()) {
+					y++;
+					return;
+				}
+			}
+			System.out.println("Can't go that way!");
 		case RIGHT:
-			// TODO check object to the right
+			if (this.gameMap.validCoord(x + 1, y)) {
+				if (!this.gameMap.getAt(x + 1, y, 0)
+						.isCollideable()) {
+					y++;
+					return;
+				}
+			}
+			System.out.println("Can't go that way!");
 		default:
 			System.out.println("Can't do that!");
 		}
@@ -55,15 +83,72 @@ public class Game {
 	}
 	
 	public void unlock(Direction dir) {
-		
+		switch(dir) {
+		case FORWARD:
+			if (this.gameMap.validCoord(x, y + 1)) {
+				// TODO get object, check if lockable
+			}
+		case BACKWARD:
+			if (this.gameMap.validCoord(x, y - 1)) {
+				// TODO get object, check if lockable
+			}
+		case LEFT:
+			if (this.gameMap.validCoord(x - 1, y)) {
+				// TODO get object, check if lockable
+			}
+		case RIGHT:
+			if (this.gameMap.validCoord(x + 1, y)) {
+				// TODO get object, check if lockable
+			}
+		default:
+			System.out.println("Can't do that!");
+		}
 	}
 	
 	public void lock(Direction dir) {
-		
+		switch(dir) {
+		case FORWARD:
+			if (this.gameMap.validCoord(x, y + 1)) {
+				// TODO get object, check if lockable
+			}
+		case BACKWARD:
+			if (this.gameMap.validCoord(x, y - 1)) {
+				// TODO get object, check if lockable
+			}
+		case LEFT:
+			if (this.gameMap.validCoord(x - 1, y)) {
+				// TODO get object, check if lockable
+			}
+		case RIGHT:
+			if (this.gameMap.validCoord(x + 1, y)) {
+				// TODO get object, check if lockable
+			}
+		default:
+			System.out.println("Can't do that!");
+		}
 	}
 	
 	public void open(Direction dir) {
-		
+		switch(dir) {
+		case FORWARD:
+			if (this.gameMap.validCoord(x, y + 1)) {
+				
+			}
+		case BACKWARD:
+			if (this.gameMap.validCoord(x, y - 1)) {
+				
+			}
+		case LEFT:
+			if (this.gameMap.validCoord(x - 1, y)) {
+				
+			}
+		case RIGHT:
+			if (this.gameMap.validCoord(x + 1, y)) {
+				
+			}
+		default:
+			System.out.println("Can't do that!");
+		}
 	}
 	
 	public void jump() {
