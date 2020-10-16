@@ -2,8 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.qa</groupId>
   <artifactId>textrpg</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.5.0</version>
   <name>Text-RPG</name>
+  <properties>
+  <maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
   
   <dependencies>
   	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -13,5 +17,13 @@
 	    <version>1.18.12</version>
 	    <scope>provided</scope>
 	</dependency> 	
+	
+	<!-- https://mvnrepository.com/artifact/com.twelvemonkeys.imageio/imageio-jpeg -->
+	<dependency>
+	    <groupId>com.twelvemonkeys.imageio</groupId>
+	    <artifactId>imageio-jpeg</artifactId>
+	    <version>3.4.1</version>
+	</dependency>
+	
   </dependencies>
 </project>
