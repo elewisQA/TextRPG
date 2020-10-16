@@ -11,7 +11,23 @@ public class Map {
 	private List<List<List<MapObject>>> worldGrid; // X and Y coordinates, with list of objects that may be stacked atop-each-other
 	
 	//-[ Map Constructor ]-
+	public Map() {
+		worldGrid = new ArrayList<List<List<MapObject>>>();
+		
+		// Make a 10x10 Map
+		for (int x = 0; x <= 10; x++) {
+			ArrayList<List<MapObject>> column = new ArrayList<List<MapObject>>();
+			for (int y = 0; y <= 10; y++) {
+				column.add(new ArrayList<MapObject>());
+			}
+			worldGrid.add(column);
+		}
+		
+	}
 	
+	public Map(List<List<List<MapObject>>> worldGrid) {
+		this.worldGrid = worldGrid;
+	}
 	
 	//-[ Map Methods ]-
 	// Specific Coordinate Methods
