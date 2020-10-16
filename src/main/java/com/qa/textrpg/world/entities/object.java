@@ -1,5 +1,9 @@
 package com.qa.textrpg.world.entities;
 
-public abstract class object {
-
+//===[ Object Definition ]===
+public abstract class Object {
+	//-[ Object Variables ]-
+	boolean collideable;
+	int uid;
+	String name;
 }
